@@ -219,7 +219,7 @@ Exploring the system further revealed sudo options for the current user:
 
 ### Crafting and Executing the Exploit
 
-Did some google searching on how to exploit the users sudo access. I found i could exploit `yum` with its unrestricted access via [fpm](https://fpm.readthedocs.io/en/latest/installation.html). I created an RPM package with a reverse shell using `fpm`, transferred it to the target, and executed it to gain root access:
+Did some google searching on how to exploit the users sudo access. I found i could exploit `yum` with its unrestricted access via [fpm](https://fpm.readthedocs.io/en/latest/installation.html). To exploit this, I crafted an RPM package designed to execute a script which adds the user jjameson to the sudoers file. This modification permits the use of all commands as the root user without restrictions. Utilizing fpm, I then transferred this package to the target system and executed it, successfully obtaining root access:
 
 ![fpm](https://github.com/mjohansona2/Walkthru/assets/6199686/98da9dcc-bf36-4917-b6ee-59f3a960777e)
 
